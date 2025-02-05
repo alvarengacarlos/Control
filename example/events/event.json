@@ -1,0 +1,17 @@
+{
+  "version": "1.0",
+  "resource": "/{proxy+}",
+  "path": "/",
+  "httpMethod": "GET",
+  "headers": {},
+  "multiValueHeaders": {},
+  "queryStringParameters": {},
+  "multiValueQueryStringParameters": {},
+  "requestContext": {},
+  "pathParameters": {
+    "proxy": "/"
+  },
+  "stageVariables": {},
+  "body": "",
+  "isBase64Encoded": false
+}

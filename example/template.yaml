@@ -1,0 +1,76 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  HttpApiGateway:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      Name: "com-helloworld-http-api-gateway"
+      StageName: "dev"
+
+  HttpApiGatewayIntegration:
+    Type: AWS::ApiGatewayV2::Integration
+    Properties:
+      ApiId: !Ref HttpApiGateway
+      IntegrationMethod: "POST"
+      IntegrationType: "AWS_PROXY"
+      IntegrationUri: !Join
+        - ""
+        - - "arn:"
+          - !Ref "AWS::Partition"
+          - ":apigateway:"
+          - !Ref "AWS::Region"
+          - ":lambda:path/2015-03-31/functions/"
+          - !GetAtt Function.Arn
+          - "/invocations"
+      PayloadFormatVersion: "1.0"
+      # Used to remove the '/dev' stage prefix from path
+      RequestParameters:
+        "overwrite:path": "$request.path"
+
+  SimpleRoute:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref HttpApiGateway
+      RouteKey: "ANY /{proxy+}"
+      Target: !Sub "integrations/${HttpApiGatewayIntegration}"
+
+  FunctionRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service:
+                - "lambda.amazonaws.com"
+            Action:
+              - "sts:AssumeRole"
+      ManagedPolicyArns:
+        - "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+      RoleName: "com-helloworld-function-role"
+
+  Function:
+    Type: "AWS::Serverless::Function"
+    Properties:
+      Architectures:
+        - "x86_64"
+      CodeUri: "HelloWorldFunction"
+      FunctionName: "com-helloworld-function"
+      Handler: "com.helloworld.Handler::handleRequest"
+      LoggingConfig:
+        LogGroup: "com-helloworld-function-log-group"
+      MemorySize: 512
+      PackageType: "Zip"
+      Role: !GetAtt FunctionRole.Arn
+      Runtime: java21
+      Timeout: 5
+
+  FunctionPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: "lambda:InvokeFunction"
+      FunctionName: !Ref Function
+      Principal: "apigateway.amazonaws.com"
+      SourceArn: !Sub "arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${HttpApiGateway}/*/*/{proxy+}"
