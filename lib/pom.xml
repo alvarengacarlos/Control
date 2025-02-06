@@ -10,6 +10,18 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
+    <name>Control</name>
+    <description
+    >Control is a library that implements a simple dispatcher for AWS Lambda Proxy Integration that works with the Java Runtime.</description>
+    <url>https://github.com/alvarengacarlos/Control</url>
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url
+            >https://github.com/alvarengacarlos/Control/blob/master/LICENSE</url>
+        </license>
+    </licenses>
+
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
