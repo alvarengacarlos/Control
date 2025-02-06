@@ -5,9 +5,9 @@
 >
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>alvarengacarlos</groupId>
+    <groupId>com.alvarengacarlos</groupId>
     <artifactId>control</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -80,19 +80,6 @@
                         implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5StatelessTestsetInfoTreeReporter"
                     />
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>3.5.2</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>

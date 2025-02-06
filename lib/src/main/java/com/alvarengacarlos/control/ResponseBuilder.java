@@ -1,4 +1,4 @@
-package alvarengacarlos.control;
+package com.alvarengacarlos.control;
 
 import java.util.Collections;
 import java.util.Map;
