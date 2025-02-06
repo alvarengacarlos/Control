@@ -1,4 +1,4 @@
-package com.alvarengacarlos.control;
+package com.alvarengacarlos.www.control;
 
 public enum HttpMethod {
     GET,

@@ -1,4 +1,4 @@
-package com.alvarengacarlos.control;
+package com.alvarengacarlos.www.control;
 
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
