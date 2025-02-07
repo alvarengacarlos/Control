@@ -30,7 +30,7 @@ Client <- APIGateway: Return response
 Paste it in your `pom.xml`:
 ```xml
 <dependency>
-    <groupId>com.alvarengacarlos</groupId>
+    <groupId>com.alvarengacarlos.www</groupId>
     <artifactId>control</artifactId>
     <version>1.0.0</version>
 </dependency>
@@ -41,8 +41,8 @@ Follow the steps below in your `Handler.java` class.
 
 Import the `App` and `ResponseBuilder` classes:
 ```java
-import com.alvarengacarlos.control.App;
-import com.alvarengacarlos.control.ResponseBuilder;
+import com.alvarengacarlos.www.control.App;
+import com.alvarengacarlos.www.control.ResponseBuilder;
 ```
 
 Create a private class attribute:
