@@ -10,17 +10,41 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>Control</name>
-    <description
-    >Control is a library that implements a simple dispatcher for AWS Lambda Proxy Integration that works with the Java Runtime.</description>
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>
+        Control is a library that implements a simple dispatcher for AWS Lambda Proxy Integration that works with the Java Runtime.
+    </description>
     <url>https://github.com/alvarengacarlos/Control</url>
+
     <licenses>
         <license>
-            <name>MIT</name>
-            <url
-            >https://github.com/alvarengacarlos/Control/blob/master/LICENSE</url>
+            <name>MIT License</name>
+            <url>
+                https://github.com/alvarengacarlos/Control/blob/master/LICENSE
+            </url>
         </license>
     </licenses>
+
+    <scm>
+        <connection>
+            scm:git:git://github.com/alvarengacarlos/Control.git
+        </connection>
+        <developerConnection>
+            scm:git:ssh://github.com:alvarengacarlos/Control.git
+        </developerConnection>
+        <url>https://github.com/alvarengacarlos/Control/tree/master</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>Carlos Henrique Alvarenga Dos Santos</name>
+            <email>carlosho200@hotmail.com</email>
+            <organization>alvarengacarlos</organization>
+            <organizationUrl>
+                https://github.com/alvarengacarlos
+            </organizationUrl>
+        </developer>
+    </developers>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -92,6 +116,56 @@
                         implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5StatelessTestsetInfoTreeReporter"
                     />
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.7.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.11.2</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                    <id>attach-sources</id>
+                    <phase>verify</phase>
+                    <goals>
+                        <goal>jar-no-fork</goal>
+                    </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>3.2.7</version>
+                <executions>
+                    <execution>
+                    <id>sign-artifacts</id>
+                    <phase>verify</phase>
+                    <goals>
+                        <goal>sign</goal>
+                    </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
