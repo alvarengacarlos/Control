@@ -26,9 +26,8 @@
           <artifactId>aws-lambda-java-events</artifactId>
           <version>3.11.0</version>
         </dependency>
-
         <dependency>
-            <groupId>com.alvarengacarlos</groupId>
+            <groupId>com.alvarengacarlos.www</groupId>
             <artifactId>control</artifactId>
             <version>1.0.0</version>
         </dependency>

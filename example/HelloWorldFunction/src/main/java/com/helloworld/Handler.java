@@ -1,7 +1,7 @@
 package com.helloworld;
 
-import com.alvarengacarlos.control.App;
-import com.alvarengacarlos.control.ResponseBuilder;
+import com.alvarengacarlos.www.control.App;
+import com.alvarengacarlos.www.control.ResponseBuilder;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
