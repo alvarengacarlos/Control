@@ -58,8 +58,9 @@ public Handler() {
         "Content-Type",
         "text/plain"
     );
-    app.get("/hello", request ->
+    app.get("/hello/{name}", request ->
         //Some logic...
+        System.out.println(request.pathParameters.get("name"));
         new ResponseBuilder()
             .withHeaders(defaultHeaders)
             .withStatusCode(200)
