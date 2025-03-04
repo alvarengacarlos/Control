@@ -1,6 +1,7 @@
 package com.alvarengacarlos.www.control;
 
 import java.util.Map;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
@@ -31,8 +32,8 @@ public class ResponseBuilderTest {
         @Test
         void shouldCreateARequestWithoutANewStatusCode() {
             ResponseBuilder.Response response = responseBuilder
-                .withStatusCode(null)
-                .build();
+                    .withStatusCode(null)
+                    .build();
 
             Assertions.assertEquals(200, response.statusCode);
             Assertions.assertEquals(Map.of(), response.headers);
@@ -43,8 +44,8 @@ public class ResponseBuilderTest {
         @Test
         void shouldCreateARequestWithANewStatusCode() {
             ResponseBuilder.Response response = responseBuilder
-                .withStatusCode(201)
-                .build();
+                    .withStatusCode(201)
+                    .build();
 
             Assertions.assertEquals(201, response.statusCode);
             Assertions.assertEquals(Map.of(), response.headers);
@@ -59,8 +60,8 @@ public class ResponseBuilderTest {
         @Test
         void shouldCreateARequestWithoutANewHeaders() {
             ResponseBuilder.Response response = responseBuilder
-                .withHeaders(null)
-                .build();
+                    .withHeaders(null)
+                    .build();
 
             Assertions.assertEquals(200, response.statusCode);
             Assertions.assertEquals(Map.of(), response.headers);
@@ -71,13 +72,13 @@ public class ResponseBuilderTest {
         @Test
         void shouldCreateARequestWithANewHeaders() {
             ResponseBuilder.Response response = responseBuilder
-                .withHeaders(Map.of("Content-Type", "application/json"))
-                .build();
+                    .withHeaders(Map.of("Content-Type", "application/json"))
+                    .build();
 
             Assertions.assertEquals(200, response.statusCode);
             Assertions.assertEquals(
-                Map.of("Content-Type", "application/json"),
-                response.headers
+                    Map.of("Content-Type", "application/json"),
+                    response.headers
             );
             Assertions.assertEquals("", response.body);
             Assertions.assertEquals(false, response.isBase64Encoded);
@@ -90,8 +91,8 @@ public class ResponseBuilderTest {
         @Test
         void shouldCreateARequestWithoutANewBody() {
             ResponseBuilder.Response response = responseBuilder
-                .withBody(null)
-                .build();
+                    .withBody(null)
+                    .build();
 
             Assertions.assertEquals(200, response.statusCode);
             Assertions.assertEquals(Map.of(), response.headers);
@@ -102,8 +103,8 @@ public class ResponseBuilderTest {
         @Test
         void shouldCreateARequestWithANewBody() {
             ResponseBuilder.Response response = responseBuilder
-                .withBody("\"name\": \"John Doe\"")
-                .build();
+                    .withBody("\"name\": \"John Doe\"")
+                    .build();
 
             Assertions.assertEquals(200, response.statusCode);
             Assertions.assertEquals(Map.of(), response.headers);
@@ -118,8 +119,8 @@ public class ResponseBuilderTest {
         @Test
         void shouldCreateARequestWithoutANewBase64Encoded() {
             ResponseBuilder.Response response = responseBuilder
-                .withIsBase64Encoded(null)
-                .build();
+                    .withIsBase64Encoded(null)
+                    .build();
 
             Assertions.assertEquals(200, response.statusCode);
             Assertions.assertEquals(Map.of(), response.headers);
@@ -130,8 +131,8 @@ public class ResponseBuilderTest {
         @Test
         void shouldCreateARequestWithANewBase64Encoded() {
             ResponseBuilder.Response response = responseBuilder
-                .withIsBase64Encoded(true)
-                .build();
+                    .withIsBase64Encoded(true)
+                    .build();
 
             Assertions.assertEquals(200, response.statusCode);
             Assertions.assertEquals(Map.of(), response.headers);

@@ -24,13 +24,13 @@ public class RequestBuilder {
         public final Boolean isBase64Encoded;
 
         private Request(
-            String httpMethod,
-            String path,
-            Map<String, String> headers,
-            Map<String, String> pathParameters,
-            Map<String, String> queryStringParameters,
-            String body,
-            Boolean isBase64Encoded
+                String httpMethod,
+                String path,
+                Map<String, String> headers,
+                Map<String, String> pathParameters,
+                Map<String, String> queryStringParameters,
+                String body,
+                Boolean isBase64Encoded
         ) {
             this.httpMethod = httpMethod;
             this.path = path;
@@ -64,7 +64,7 @@ public class RequestBuilder {
     }
 
     public RequestBuilder withPathParameters(
-        Map<String, String> pathParameters
+            Map<String, String> pathParameters
     ) {
         if (pathParameters != null) {
             this.pathParameters = Collections.unmodifiableMap(pathParameters);
@@ -73,11 +73,11 @@ public class RequestBuilder {
     }
 
     public RequestBuilder withQueryStringParameters(
-        Map<String, String> queryStringParameters
+            Map<String, String> queryStringParameters
     ) {
         if (queryStringParameters != null) {
             this.queryStringParameters = Collections.unmodifiableMap(
-                queryStringParameters
+                    queryStringParameters
             );
         }
         return this;
@@ -99,13 +99,13 @@ public class RequestBuilder {
 
     public Request build() {
         return new Request(
-            httpMethod,
-            path,
-            headers,
-            pathParameters,
-            queryStringParameters,
-            body,
-            isBase64Encoded
+                httpMethod,
+                path,
+                headers,
+                pathParameters,
+                queryStringParameters,
+                body,
+                isBase64Encoded
         );
     }
 }

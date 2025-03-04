@@ -18,10 +18,10 @@ public class ResponseBuilder {
         public final Boolean isBase64Encoded;
 
         private Response(
-            Integer statusCode,
-            Map<String, String> headers,
-            String body,
-            Boolean isBase64Encoded
+                Integer statusCode,
+                Map<String, String> headers,
+                String body,
+                Boolean isBase64Encoded
         ) {
             this.statusCode = statusCode;
             this.headers = headers;

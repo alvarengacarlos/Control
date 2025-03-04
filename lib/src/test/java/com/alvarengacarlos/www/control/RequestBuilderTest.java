@@ -1,6 +1,7 @@
 package com.alvarengacarlos.www.control;
 
 import java.util.Map;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
@@ -34,8 +35,8 @@ public class RequestBuilderTest {
         @Test
         void shouldCreateARequestWithoutANewHttpMethod() {
             RequestBuilder.Request request = requestBuilder
-                .withHttpMethod(null)
-                .build();
+                    .withHttpMethod(null)
+                    .build();
 
             Assertions.assertEquals("GET", request.httpMethod);
             Assertions.assertEquals("/", request.path);
@@ -49,8 +50,8 @@ public class RequestBuilderTest {
         @Test
         void shouldCreateARequestWithANewHttpMethod() {
             RequestBuilder.Request request = requestBuilder
-                .withHttpMethod("POST")
-                .build();
+                    .withHttpMethod("POST")
+                    .build();
 
             Assertions.assertEquals("POST", request.httpMethod);
             Assertions.assertEquals("/", request.path);
@@ -68,8 +69,8 @@ public class RequestBuilderTest {
         @Test
         void shouldCreateARequestWithoutANewPath() {
             RequestBuilder.Request request = requestBuilder
-                .withPath(null)
-                .build();
+                    .withPath(null)
+                    .build();
 
             Assertions.assertEquals("GET", request.httpMethod);
             Assertions.assertEquals("/", request.path);
@@ -83,8 +84,8 @@ public class RequestBuilderTest {
         @Test
         void shouldCreateARequestWithANewPath() {
             RequestBuilder.Request request = requestBuilder
-                .withPath("/users")
-                .build();
+                    .withPath("/users")
+                    .build();
 
             Assertions.assertEquals("GET", request.httpMethod);
             Assertions.assertEquals("/users", request.path);
@@ -102,8 +103,8 @@ public class RequestBuilderTest {
         @Test
         void shouldCreateARequestWithoutANewHeaders() {
             RequestBuilder.Request request = requestBuilder
-                .withHeaders(null)
-                .build();
+                    .withHeaders(null)
+                    .build();
 
             Assertions.assertEquals("GET", request.httpMethod);
             Assertions.assertEquals("/", request.path);
@@ -117,14 +118,14 @@ public class RequestBuilderTest {
         @Test
         void shouldCreateARequestWithANewHeaders() {
             RequestBuilder.Request request = requestBuilder
-                .withHeaders(Map.of("Content-Type", "application/json"))
-                .build();
+                    .withHeaders(Map.of("Content-Type", "application/json"))
+                    .build();
 
             Assertions.assertEquals("GET", request.httpMethod);
             Assertions.assertEquals("/", request.path);
             Assertions.assertEquals(
-                Map.of("Content-Type", "application/json"),
-                request.headers
+                    Map.of("Content-Type", "application/json"),
+                    request.headers
             );
             Assertions.assertEquals(Map.of(), request.pathParameters);
             Assertions.assertEquals(Map.of(), request.queryStringParameters);
@@ -139,8 +140,8 @@ public class RequestBuilderTest {
         @Test
         void shouldCreateARequestWithoutANewPathParameters() {
             RequestBuilder.Request request = requestBuilder
-                .withPathParameters(null)
-                .build();
+                    .withPathParameters(null)
+                    .build();
 
             Assertions.assertEquals("GET", request.httpMethod);
             Assertions.assertEquals("/", request.path);
@@ -154,15 +155,15 @@ public class RequestBuilderTest {
         @Test
         void shouldCreateARequestWithANewPathParameters() {
             RequestBuilder.Request request = requestBuilder
-                .withPathParameters(Map.of("userId", "1"))
-                .build();
+                    .withPathParameters(Map.of("userId", "1"))
+                    .build();
 
             Assertions.assertEquals("GET", request.httpMethod);
             Assertions.assertEquals("/", request.path);
             Assertions.assertEquals(Map.of(), request.headers);
             Assertions.assertEquals(
-                Map.of("userId", "1"),
-                request.pathParameters
+                    Map.of("userId", "1"),
+                    request.pathParameters
             );
             Assertions.assertEquals(Map.of(), request.queryStringParameters);
             Assertions.assertEquals("", request.body);
@@ -176,8 +177,8 @@ public class RequestBuilderTest {
         @Test
         void shouldCreateARequestWithoutANewQueryStringParameters() {
             RequestBuilder.Request request = requestBuilder
-                .withQueryStringParameters(null)
-                .build();
+                    .withQueryStringParameters(null)
+                    .build();
 
             Assertions.assertEquals("GET", request.httpMethod);
             Assertions.assertEquals("/", request.path);
@@ -191,16 +192,16 @@ public class RequestBuilderTest {
         @Test
         void shouldCreateARequestWithANewQueryStringParameters() {
             RequestBuilder.Request request = requestBuilder
-                .withQueryStringParameters(Map.of("page", "1"))
-                .build();
+                    .withQueryStringParameters(Map.of("page", "1"))
+                    .build();
 
             Assertions.assertEquals("GET", request.httpMethod);
             Assertions.assertEquals("/", request.path);
             Assertions.assertEquals(Map.of(), request.headers);
             Assertions.assertEquals(Map.of(), request.pathParameters);
             Assertions.assertEquals(
-                Map.of("page", "1"),
-                request.queryStringParameters
+                    Map.of("page", "1"),
+                    request.queryStringParameters
             );
             Assertions.assertEquals("", request.body);
             Assertions.assertEquals(false, request.isBase64Encoded);
@@ -213,8 +214,8 @@ public class RequestBuilderTest {
         @Test
         void shouldCreateARequestWithoutANewBody() {
             RequestBuilder.Request request = requestBuilder
-                .withBody(null)
-                .build();
+                    .withBody(null)
+                    .build();
 
             Assertions.assertEquals("GET", request.httpMethod);
             Assertions.assertEquals("/", request.path);
@@ -228,8 +229,8 @@ public class RequestBuilderTest {
         @Test
         void shouldCreateARequestWithANewBody() {
             RequestBuilder.Request request = requestBuilder
-                .withBody("{\"name\": \"John Doe\"}")
-                .build();
+                    .withBody("{\"name\": \"John Doe\"}")
+                    .build();
 
             Assertions.assertEquals("GET", request.httpMethod);
             Assertions.assertEquals("/", request.path);
@@ -247,8 +248,8 @@ public class RequestBuilderTest {
         @Test
         void shouldCreateARequestWithoutANewBase64Encoded() {
             RequestBuilder.Request request = requestBuilder
-                .withIsBase64Encoded(null)
-                .build();
+                    .withIsBase64Encoded(null)
+                    .build();
 
             Assertions.assertEquals("GET", request.httpMethod);
             Assertions.assertEquals("/", request.path);
@@ -262,8 +263,8 @@ public class RequestBuilderTest {
         @Test
         void shouldCreateARequestWithANewBase64Encoded() {
             RequestBuilder.Request request = requestBuilder
-                .withIsBase64Encoded(true)
-                .build();
+                    .withIsBase64Encoded(true)
+                    .build();
 
             Assertions.assertEquals("GET", request.httpMethod);
             Assertions.assertEquals("/", request.path);
